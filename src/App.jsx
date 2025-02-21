@@ -18,7 +18,6 @@ const App = () => {
         <Sources />
         <Tech />
       </main>
-
     </>
   )
 }
