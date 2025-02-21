@@ -80,7 +80,7 @@ const Sources = () => {
 
                                 <ul className="flex flex-col gap-4 list-disc px-6">
                                     {job?.points.map(point => (
-                                        <li key={point.id}>{point.text}</li>
+                                        <li key={point.id} className='font-light text-md'>{point.text}</li>
                                     ))}
                                 </ul>
                             </li>

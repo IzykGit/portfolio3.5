@@ -46,6 +46,7 @@ const ParticlesOne = () => {
                     <motion.div key={particle.id}
                         initial={{ opacity: 0 }}
                         animate={particle.animation}
+                        className="rounded-full"
                         style={{
                             width: `${particle.size}px`,
                             height: `${particle.size}px`,

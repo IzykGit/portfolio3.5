@@ -11,8 +11,6 @@ const App = () => {
     <>
       <ParticlesOne />
       <ParticlesTwo />
-      <ParticlesOne />
-      <ParticlesTwo />
 
       <main className='max-w-5xl mx-auto py-32 px-6 flex flex-col gap-8 z-10 relative'>
         <Hero />
