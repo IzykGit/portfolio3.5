@@ -1,0 +1,26 @@
+{
+    "heading": "Projects",
+    "projects": [
+        {
+            "id": 1,
+            "name": "Full Stack Link Sharing App",
+            "src": "../assets/LinkSharingApp.PNG",
+            "link": "https://link-sharing-app-yzuc.vercel.app",
+            "code": "https://github.com/IzykGit/link-sharing-app"
+        },
+        {
+            "id": 2,
+            "name": "Multistep Form",
+            "src": "../assets/multistep.png",
+            "link": "https://multistep-form-black.vercel.app/",
+            "code": "https://github.com/IzykGit/multistep-form"
+        },
+        {
+            "id": 3,
+            "name": "Portfolio V2",
+            "src": "../assets/Screenshot_2025-02-17_23-01-00.png",
+            "link": "https://portfolio2-delta-ashen.vercel.app/",
+            "code": "https://github.com/IzykGit/portfolio2"
+        }
+    ]
+}

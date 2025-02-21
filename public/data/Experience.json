@@ -1,0 +1,33 @@
+{
+    "heading": "Experience",
+    "jobs": [
+        {
+            "id": 1,
+            "company": "Tomorrow's AI",
+            "startDate": "2024-10-01",
+            "endDate": "2025-01-16",
+            "points": [
+                {
+                    "id": 1,
+                    "text": "Founding Engineer: Spearheaded the complete development lifecycle of the project from conceptualization and architectural design to full-scale implementation and deployment."
+                },
+                {
+                    "id": 2,
+                    "text": "Designed UI/UX prototypes for Europe News Global using Figma, ensuring alignment with brand guidelines and usability best practices."
+                },
+                {
+                    "id": 3,
+                    "text": "Engineered reusable React components and dynamic pages, leveraging React Query (TanStack) for optimized frontend caching and reduced redundant API calls."
+                },
+                {
+                    "id": 4,
+                    "text": "Developed a Flask backend in VSCode, designing RESTful APIs to integrate seamlessly with the React frontend for full-stack functionality."
+                },
+                {
+                    "id": 6,
+                    "text": "Integrated AWS DynamoDB as the primary NoSQL database, enabling efficient data storage and retrieval for the application."
+                }
+            ]
+        }
+    ]
+}
