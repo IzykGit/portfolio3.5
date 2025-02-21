@@ -9,9 +9,7 @@ const Hero = () => {
                 <p className="text-xl font-light">Software Engineer based in Columbus, OH</p>
             </div>
 
-            <div>
-                <img src={selfimage} alt="Lance Hemphill" className="rounded-full w-46" />
-            </div>
+            <img src={selfimage} alt="Lance Hemphill" className="rounded-full w-46 sm:flex hidden" />
         </section>
     )
 }

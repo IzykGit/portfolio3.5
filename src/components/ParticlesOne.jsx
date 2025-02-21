@@ -17,7 +17,7 @@ const ParticlesOne = () => {
         return {
             x: [randomXStart, randomXEnd],
             y: [randomYStart, randomYEnd],
-            opacity: [0, 1, 0],
+            opacity: [0, 0.9, 0],
             transition: { duration: randomDuration, ease: "easeInOut", repeat: Infinity }
         };
     }
@@ -46,7 +46,6 @@ const ParticlesOne = () => {
                     <motion.div key={particle.id}
                         initial={{ opacity: 0 }}
                         animate={particle.animation}
-                        className={`rounded-full`}
                         style={{
                             width: `${particle.size}px`,
                             height: `${particle.size}px`,

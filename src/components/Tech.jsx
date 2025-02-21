@@ -79,7 +79,7 @@ const Tech = () => {
                 {technologies.map((tech, i) => (
                     <a key={i}
                         className="flex items-center justify-center px-8 py-2 border border-black bg-transparent text-black
-                        dark:border-gray-600 relative group transition duration-200 cursor-pointer active:scale-[0.95] min-w-46"
+                        dark:border-gray-600 relative group transition duration-200 cursor-pointer active:scale-[0.95] min-w-fit"
                         target="_blank" href={tech.link}
                         aria-label={tech.text}
                     >
