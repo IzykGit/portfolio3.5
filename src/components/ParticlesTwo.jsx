@@ -5,15 +5,6 @@ import { motion } from "framer-motion";
 const ParticlesTwo = () => {
     const [particles, setParticles] = useState([])
 
-    const generateColor = () => {
-
-        const r = Math.floor(Math.random() * 255)
-        const g = Math.floor(Math.random() * 255)
-        const b = Math.floor(Math.random() * 255)
-
-        return `rgb(${r}, ${g}, ${b})`
-    }
-
 
     const generateRandomParticleAnimation = () => {
         const randomXStart = Math.random() * window.innerWidth;
@@ -42,9 +33,7 @@ const ParticlesTwo = () => {
             return {
                 id: i,
                 size: generateRandomParticleSize(),
-                animation: generateRandomParticleAnimation(),
-                color1: generateColor(),
-                color2: generateColor()
+                animation: generateRandomParticleAnimation()
             };
         });
 
@@ -60,7 +49,7 @@ const ParticlesTwo = () => {
                         style={{
                             width: `${particle.size}px`,
                             height: `${particle.size}px`,
-                            backgroundImage: `linear-gradient(${particle.color1}, ${particle.color2})`,
+                            border: "1px solid black"
                         }}
                     >
                     </motion.div>

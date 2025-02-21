@@ -1,54 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 
 const Sources = () => {
-
     const [experienceData, setExperienceData] = useState()
     const [projectData, setProjectData] = useState()
-
     const [data, setData] = useState(null)
-    const [isOpen, setIsOpen] = useState({ value: "", open: false })
-
-    const expandingVariants = {
-        collapseAnimation: {
-            maxHeight: "0rem",
-            opacity: 0,
-            display: "none",
-            transition: { duration: 0.5 }
-        },
-        expandAnimation: {
-            maxHeight: "160rem",
-            opacity: 1,
-            display: "initial",
-            transition: { duration: 0.5, delay: 0.3 }
-        }
-    };
-
-    const selectedAnimation = {
-        opacity: [0, 1, 0],
-        display: "flex",
-        transition: { duration: 0.8, repeat: Infinity }
-    }
+    const [source, setSource] = useState({ value: "Experience" })
 
     const handleOpenSet = (buttonVal) => {
+        setSource({ value: buttonVal })
 
-        if (isOpen.value === buttonVal) {
-            setIsOpen({ open: false })
+        if (buttonVal === "Experience") {
+            setData(experienceData)
         }
-        else {
-            setIsOpen({ value: buttonVal, open: true })
-
-            if (buttonVal === "Experience") {
-                setData(experienceData)
-            }
-            else if (buttonVal === "Projects") {
-                setData(projectData)
-            }
+        else if (buttonVal === "Projects") {
+            setData(projectData)
         }
     }
-
-
-
 
     useEffect(() => {
         const getData = async () => {
@@ -58,15 +25,13 @@ const Sources = () => {
             const projects = await fetch('/data/Projects.json')
             const proData = await projects.json()
 
-
             setExperienceData(expData)
             setProjectData(proData)
+            setData(expData)
         }
 
         getData()
     }, [])
-
-
 
     return (
         <section className='flex flex-col w-full h-fit'>
@@ -78,25 +43,30 @@ const Sources = () => {
                 >
                     <div className="absolute -bottom-2 -right-2 bg-gray-300 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200" />
                     <span className="relative">
-                        Experience
                     </span>
-                    <motion.div className="w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full hidden absolute right-2" animate={(isOpen && isOpen.value === "Experience") ? selectedAnimation : {}}></motion.div>
+                    Experience
+                    {source.value === "Experience" && (
+                        <div className="w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full absolute right-2"></div>
+                    )}
                 </button>
 
                 <button className="flex items-center justify-center px-8 py-2 border border-black bg-transparent text-black
-                dark:border-gray-600 relative group transition duration-200 cursor-pointer active:scale-[0.95] w-46"
+                    dark:border-gray-600 relative group transition duration-200 cursor-pointer active:scale-[0.95] w-46"
                     value={"Projects"}
                     onClick={(e) => handleOpenSet(e.target.value)}
                 >
                     <div className="absolute -bottom-2 -right-2 bg-gray-300 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200" />
                     <span className="relative">
-                        Projects
+
                     </span>
-                    <motion.div className="w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full hidden absolute right-2" animate={(isOpen && isOpen.value === "Experience") ? selectedAnimation : {}}></motion.div>
+                    Projects
+                    {source.value === "Projects" && (
+                        <div className="w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full absolute right-2"></div>
+                    )}
                 </button>
             </div>
 
-            <motion.div className="border-[#D9D9D9] w-full h-fit pt-8 pb-4 sm:px-8" variants={expandingVariants} initial={false} animate={isOpen.open ? "expandAnimation" : "collapseAnimation"}>
+            <div className="border-[#D9D9D9] w-full h-fit pt-8 pb-4 sm:px-8">
                 <h3 className="text-2xl font-bold">{data?.heading}</h3>
 
                 {data?.heading === "Experience" && (
@@ -113,13 +83,10 @@ const Sources = () => {
                                         <li key={point.id}>{point.text}</li>
                                     ))}
                                 </ul>
-
-
                             </li>
                         ))}
                     </ul>
                 )}
-
 
                 {data?.heading === "Projects" && (
                     <ul className="list-disc px-6 sm:px-12 pt-6 flex flex-col gap-12">
@@ -133,20 +100,26 @@ const Sources = () => {
                                     <div></div>
                                     <img src={project.src} alt={project.name} />
                                     <div className="flex gap-4">
-                                        <a className="backdrop-blur-lg bg-transparent cursor-pointer hover:bg-blue-500 text-blue-700 font-semibold
-                                        py-2 px-4 border transition duration-200 border-blue-500 hover:border-transparent text-sm md:text-base"
+                                        <a className="flex items-center justify-center px-8 py-2 border border-black bg-transparent text-black
+                                            dark:border-gray-600 relative group transition duration-200 cursor-pointer active:scale-[0.95] w-46"
                                             aria-label="View the demo site."
                                             href={project.link}
                                             target="_blank"
                                         >
+                                            <div className="absolute -bottom-2 -right-2 bg-gray-300 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200" />
+                                            <span className="relative">
+                                            </span>
                                             Demo
                                         </a>
-                                        <a className="backdrop-blur-lg bg-transparent cursor-pointer hover:bg-blue-500 text-blue-700 font-semibold
-                                        py-2 px-4 border transition duration-200 border-blue-500 hover:border-transparent text-sm md:text-base"
+                                        <a className="flex items-center justify-center px-8 py-2 border border-black bg-transparent text-black
+                                            dark:border-gray-600 relative group transition duration-200 cursor-pointer active:scale-[0.95] w-46"
                                             aria-label="View the code for the site."
                                             href={project.code}
                                             target="_blank"
                                         >
+                                            <div className="absolute -bottom-2 -right-2 bg-gray-300 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200" />
+                                            <span className="relative">
+                                            </span>
                                             Code
                                         </a>
                                     </div>
@@ -155,7 +128,7 @@ const Sources = () => {
                         ))}
                     </ul>
                 )}
-            </motion.div>
+            </div>
         </section>
     )
 }
